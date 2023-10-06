@@ -6,11 +6,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.proyectoprueba.app.ErrorApp
+import com.example.proyectoprueba.domain.GetUserUseCase
 import com.example.proyectoprueba.domain.SaveUserUseCase
+import com.example.proyectoprueba.domain.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainViewModel (private val saveUserUseCase: SaveUserUseCase) : ViewModel() {
+class MainViewModel (
+    private val saveUserUseCase: SaveUserUseCase,
+    private val getUserUseCase: GetUserUseCase
+) : ViewModel() {
 
     private val _uiState = MutableLiveData<UiState>()
     val uiState: LiveData<UiState> = _uiState
@@ -24,9 +29,9 @@ class MainViewModel (private val saveUserUseCase: SaveUserUseCase) : ViewModel()
 
     fun loadUser(){
         viewModelScope.launch(Dispatchers.IO){
-            saveUserUseCase().fold(
+            getUserUseCase().fold(
                 {responseError(it)},
-                {responseSuccess(it)}
+                {responseGetUserSuccess(it)}
             )
         }
     }
@@ -38,6 +43,9 @@ class MainViewModel (private val saveUserUseCase: SaveUserUseCase) : ViewModel()
 
     }
 
+    private fun responseGetUserSuccess(user: User){
+        _uiState.postValue(UiState(user = user))
+    }
     data class UiState(
         val ErrorApp: ErrorApp? = null,
         val isLoading: Boolean = false,
