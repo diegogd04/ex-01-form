@@ -5,4 +5,8 @@
     <string name="label_date_born">Fecha nacimiento</string>
     <string name="label_age">Edad</string>
     <string name="action_save">Guardar</string>
+    <string name="action_ex01_form">Ejercicio 1</string>
+    <string name="action_ex02">Ejercicio 2</string>
+    <string name="action_ex02_burguer">Hamburguesa</string>
+    <string name="action_ex03">Ejercicio 3</string>
 </resources>

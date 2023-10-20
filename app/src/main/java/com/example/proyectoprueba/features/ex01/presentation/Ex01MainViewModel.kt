@@ -1,18 +1,17 @@
-package com.example.proyectoprueba.presentation
+package com.example.proyectoprueba.features.ex01.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.proyectoprueba.app.ErrorApp
-import com.example.proyectoprueba.domain.GetUserUseCase
-import com.example.proyectoprueba.domain.SaveUserUseCase
-import com.example.proyectoprueba.domain.User
+import com.example.proyectoprueba.features.ex01.domain.GetUserUseCase
+import com.example.proyectoprueba.features.ex01.domain.SaveUserUseCase
+import com.example.proyectoprueba.features.ex01.domain.User
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainViewModel (
+class Ex01MainViewModel (
     private val saveUserUseCase: SaveUserUseCase,
     private val getUserUseCase: GetUserUseCase
 ) : ViewModel() {

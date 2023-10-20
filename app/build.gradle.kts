@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.proyectoprueba"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.proyectoprueba"
         minSdk = 26
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -33,11 +33,15 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
@@ -52,6 +56,15 @@ dependencies {
 
     // Ciclo Vida: LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+
+    // Json
+    implementation("com.google.code.gson:gson:2.10.1")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    // Skeleton
+    implementation ("com.faltenreich:skeletonlayout:5.0.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

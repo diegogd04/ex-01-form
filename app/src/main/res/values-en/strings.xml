@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TestProyect</string>
+    <string name="label_name">Name</string>
+    <string name="label_surname">Surnames</string>
+    <string name="label_date_born">Date born</string>
+    <string name="label_age">Age</string>
+    <string name="action_save">Save</string>
+    <string name="action_ex01_form">Exercise 1</string>
+    <string name="action_ex02">Exercise 2</string>
+    <string name="action_ex02_burguer">Burguer</string>
+    <string name="action_ex03">Exercise 3</string>
+</resources>

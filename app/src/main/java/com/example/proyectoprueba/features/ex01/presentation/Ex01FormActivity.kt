@@ -1,22 +1,27 @@
-package com.example.proyectoprueba.presentation
+package com.example.proyectoprueba.features.ex01.presentation
 
-import android.database.Observable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.Observer
 import com.example.proyectoprueba.R
-import com.example.proyectoprueba.data.UserDataRepository
-import com.example.proyectoprueba.data.local.XmlLocalDataSource
-import com.example.proyectoprueba.domain.GetUserUseCase
-import com.example.proyectoprueba.domain.SaveUserUseCase
-import com.example.proyectoprueba.domain.User
+import com.example.proyectoprueba.databinding.ActivityButtonBinding
+import com.example.proyectoprueba.databinding.ActivityEx01FormBinding
+import com.example.proyectoprueba.databinding.ActivityEx02Binding
+import com.example.proyectoprueba.features.ex01.data.UserDataRepository
+import com.example.proyectoprueba.features.ex01.data.local.XmlLocalDataSource
+import com.example.proyectoprueba.features.ex01.domain.GetUserUseCase
+import com.example.proyectoprueba.features.ex01.domain.SaveUserUseCase
+import com.example.proyectoprueba.features.ex01.domain.User
 
-class MainActivity : AppCompatActivity() {
+class Ex01FormActivity : AppCompatActivity() {
+
+    lateinit var binding: ActivityEx01FormBinding
+
         //Para usar esta creación se ha añadido: implementation "android.activity:activity-ktx:1.7.2"
-    val viewModel: MainViewModel by lazy {
-        MainViewModel(
+    val viewModel: Ex01MainViewModel by lazy {
+        Ex01MainViewModel(
             SaveUserUseCase(UserDataRepository(XmlLocalDataSource(this))),
             GetUserUseCase(UserDataRepository(XmlLocalDataSource(this)))
         )
@@ -24,10 +29,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        bindView()
         setContentView(R.layout.activity_button)
         setupView()
         setupObservers()
         viewModel.loadUser()
+    }
+
+    private fun bindView(){
+        binding = ActivityEx01FormBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
     }
 
     private fun setupView(){
@@ -47,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<EditText>(R.id.input_age).inputType.toInt()
 
     private fun setupObservers(){
-        val observer = Observer<MainViewModel.UiState>{
+        val observer = Observer<Ex01MainViewModel.UiState>{
             //Código al notificar el observador
             it.user?.apply{
                 bindData(this)

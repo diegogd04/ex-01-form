@@ -1,4 +1,4 @@
-package com.example.proyectoprueba.domain
+package com.example.proyectoprueba.features.ex01.domain
 
 import com.example.proyectoprueba.app.ErrorApp
 import com.iesam.kotlintrainning.Either
