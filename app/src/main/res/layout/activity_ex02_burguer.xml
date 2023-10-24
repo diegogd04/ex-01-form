@@ -10,7 +10,7 @@
             android:id="@+id/background"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@drawable/hamburguesa"
+            tools:background="@drawable/hamburguesa"
             android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp" >
@@ -19,7 +19,7 @@
                 android:id="@+id/input_discount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                tools:text="-0%"
                 android:background="@color/orange"
                 android:padding="10dp"
                 android:layout_marginEnd="10dp"
@@ -31,11 +31,11 @@
                 android:id="@+id/input_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:layout_centerInParent="true"
+                tools:text="Descripción"
                 android:textColor="@color/white"
-                android:textStyle="bold"
                 android:textSize="30dp"
-                android:layout_centerInParent="true" />
+                android:textStyle="bold" />
 
         </RelativeLayout>
         <LinearLayout
@@ -44,7 +44,6 @@
             android:layout_below="@+id/background"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp" >
-
 
             <ImageView
                 android:layout_width="30dp"
@@ -56,7 +55,7 @@
                 android:id="@+id/input_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                tools:text="0%"
                 android:textSize="20dp"
                 android:layout_marginTop="5dp" />
 
@@ -71,7 +70,7 @@
                 android:id="@+id/input_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                tools:text="0-0min"
                 android:textSize="20dp"
                 android:layout_marginTop="5dp" />
         </LinearLayout>

@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.proyectoprueba.app.ErrorApp
 import com.example.proyectoprueba.features.ex02.burguer.domain.Burguer
 import com.example.proyectoprueba.features.ex02.burguer.domain.GetBurguerUseCase
-import com.example.proyectoprueba.features.ex02.burguer.domain.SaveBurguerUseCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
